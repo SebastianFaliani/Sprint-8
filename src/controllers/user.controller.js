@@ -1,4 +1,4 @@
-const { getUsers, getUserById, getUserByEmail } = require("../services/user.service");
+const { getUsers, getUserById, getUserByEmail, insertUser, updateUser, deleteUser } = require("../services/user.service");
 module.exports = {
       getUsers: async (req, res) => {
             try {
@@ -36,9 +36,23 @@ module.exports = {
                   } else {
                         return res.status(400).json("User does not exist");
                   }
-            } catch (error) {}
+            } catch (error) {
+                  return res.status(500).json({ Error: `Error del Servidor ${error}` });
+            }
       },
-      createUser: async (req, res) => {},
+      createUser: async (req, res) => {
+            //return res.json(req.body);
+            try {
+                  const RESPONSE = await insertUser(req.body);
+                  if (RESPONSE) {
+                        return res.status(201).json("User created successfully");
+                  } else {
+                        return res.status(400).json("Somethings wrong");
+                  }
+            } catch (error) {
+                  return res.status(500).json({ Error: `Error del Servidor ${error}` });
+            }
+      },
       deleteUser: async (req, res) => {},
       updateUser: async (req, res) => {},
       login: async (req, res) => {},

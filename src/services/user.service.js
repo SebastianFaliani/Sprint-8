@@ -1,4 +1,5 @@
-const { User } = require("../database/models");
+const { User, UserDetail } = require("../database/models");
+const bcrypt = require("bcrypt");
 
 const getUsers = async () => {
       try {
@@ -36,8 +37,19 @@ const getUserByEmail = async (email) => {
 };
 
 const insertUser = async (userData) => {
+      console.log(userData);
       try {
-            return await User.create(userData);
+            createUser = await User.create({
+                  email: userData.email,
+                  password: bcrypt.hashSync(userData.pass, 12),
+                  typeOfAccess: "user",
+            });
+            return (createUserDetail = await UserDetail.create({
+                  firstName: userData.nombre,
+                  lastName: userData.apellido,
+                  avatar: "default-image.png",
+                  idUser: createUser.idUser,
+            }));
       } catch (error) {
             console.error("Error while insert user:", error);
             throw new Error("Error insert user");

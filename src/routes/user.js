@@ -5,11 +5,11 @@ const { userRegisterValidationRules } = require("../validations/registerUser.val
 const validate = require("../validations/index.validator");
 const userLoginValidationRules = require("../validations/loginUser.validator");
 
-router.get("/", getUsers)
-      .get("/:id", getUserById)
-      .post("/login", userLoginValidationRules(), validate, login)
-      .post("/register", userRegisterValidationRules(), validate, createUser)
-      .put("/:id", updateUser)
-      .delete("/:id", deleteUser);
+router.get("/", getUsers);
+router.get("/:id", getUserById);
+router.post("/login", userLoginValidationRules(), validate, login);
+router.post("/register", userRegisterValidationRules(), validate, createUser);
+router.put("/:id", updateUser);
+router.delete("/:id", deleteUser);
 
 module.exports = router;
