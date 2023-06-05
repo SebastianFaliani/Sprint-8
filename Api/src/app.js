@@ -5,7 +5,7 @@ const process = require("process");
 const express = require("express");
 const methodOverride = require("method-override");
 require("dotenv").config();
-
+const cors=require("cors")
 // Rutas
 const [userRouter, productRouter, orderRouter, categoryRouter] = require("./routes");
 
@@ -18,7 +18,7 @@ const PORT = process.env.PORT || 3000;
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(methodOverride("_method"));
-
+app.use(cors());
 // Rutas
 app.use(`/api/users`, userRouter);
 app.use(`/api/products`, productRouter);
