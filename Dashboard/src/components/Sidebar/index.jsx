@@ -1,47 +1,43 @@
-import { Link } from "react-router-dom";
-import { SidebarLogo } from "./components/Logo";
-import Logo from "../../assets/logo.png";
+//import { Link } from "react-router-dom";
+
 import { NavItem } from "./components/NavItem";
 import styles from "./index.module.css";
 
-const TITLE = "Dashboard Artística";
+const TITLE = "Dashboard Ferretería";
 
 export const Sidebar = () => {
-  return (
-    <>
-      {/* <!-- Sidebar --> */}
-      <ul
-        className={`navbar-nav sidebar sidebar-dark accordion ${styles.bordo}`}
-        id="accordionSidebar"
-      >
-        {/* <!-- Sidebar - Brand --> */}
-        <SidebarLogo brand="Artistica Dalí" logo={Logo} />        
-        {/* <!-- Divider --> */}
-        <hr className="sidebar-divider my-0" />
+      return (
+            <>
+                  {/* <!-- Sidebar --> */}
+                  <ul className={`navbar-nav sidebar sidebar-dark accordion ${styles.bordo}`} id="accordionSidebar">
+                        {/* <!-- Sidebar - Brand --> */}
 
-        {/* <!-- Nav Item - Dashboard --> */}
-        <li className="nav-item active">
-          <a className="nav-link" href="/">
-            <i className="fas fa-fw fa-tachometer-alt"></i>
-            <span>{TITLE}</span>
-          </a>
-        </li>
+                        {/* <!-- Divider --> */}
+                        <hr className="sidebar-divider my-0" />
 
-        {/* <!-- Divider --> */}
-        <hr className="sidebar-divider" />
+                        {/* <!-- Nav Item - Dashboard --> */}
+                        <li className="nav-item active">
+                              <a className="nav-link" href="/">
+                                    <i className="fas fa-fw fa-tachometer-alt"></i>
+                                    <span>{TITLE}</span>
+                              </a>
+                        </li>
 
-        {/* <!-- Heading --> */}
-        <div className="sidebar-heading">Administrar</div>
+                        {/* <!-- Divider --> */}
+                        <hr className="sidebar-divider" />
 
-        {/* <!-- Nav Items --> */}
-       
-        <NavItem href="/productos" icon="fa-box" name="ABM - Productos"/>
-        <NavItem href="/usuarios" icon="fa-users" name="ABM - Usuarios"/>
+                        {/* <!-- Heading --> */}
+                        <div className="sidebar-heading">Administrar</div>
 
-        {/* <!-- Divider --> */}
-        <hr className="sidebar-divider d-none d-md-block" />
-      </ul>
-      {/* <!-- End of Sidebar --> */}
-    </>
-  );
+                        {/* <!-- Nav Items --> */}
+
+                        <NavItem href="/productos" icon="fa-solid fa-screwdriver-wrench" name="ABM - Productos" />
+                        <NavItem href="/usuarios" icon="fa-solid fa-users" name="ABM - Usuarios" />
+
+                        {/* <!-- Divider --> */}
+                        <hr className="sidebar-divider d-none d-md-block" />
+                  </ul>
+                  {/* <!-- End of Sidebar --> */}
+            </>
+      );
 };
