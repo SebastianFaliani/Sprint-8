@@ -8,6 +8,7 @@ module.exports = {
                               id: user.idUser,
                               name: `${user.userdetail.firstName} ${user.userdetail.lastName}`,
                               email: user.email,
+                              avatar: user.userdetail.avatar,
                               detail: `/api/users/${user.idUser}`,
                         };
                   });
